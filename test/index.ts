@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import { Contract, ContractFactory } from "ethers";
+import { Contract, ContractFactory, BigNumber } from "ethers";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -133,5 +133,53 @@ describe("NFT1155", function() {
     expect(await nft1155.balanceOf(addr1.address, 1)).to.equal(8);
     expect(await nft1155.balanceOf(addr1.address, 2)).to.equal(8);
     expect(await nft1155.balanceOf(addr1.address, 3)).to.equal(8);
+  });
+
+  it("Events: Should emit TransferSingle", async function () {
+    expect(await nft1155.mint(addr1.address, 1, 1, "0x")).to.emit(nft1155, "TransferSingle").withArgs(owner.address, ethers.constants.AddressZero, owner.address, 1, 1, "0x0");
+  });
+
+  it("Events: Should emit TransferSingle", async function () {
+    expect(await nft1155.safeTransferFrom(owner.address, addr1.address, 1, 1, "0x")).to.emit(nft1155, "TransferSingle").withArgs(owner.address, owner.address, addr1.address, 1, 1, "0x0");
+  });
+
+  it("Events: Should emit TransferBatch", async function () {
+    expect(await nft1155.safeBatchTransferFrom(owner.address, addr1.address, [1, 2, 3, 4], [1, 1, 1, 1], "0x")).to.emit(nft1155, "TransferBatch").withArgs(owner.address, owner.address, addr1.address, [1, 2, 3, 4], [1, 1, 1, 1], "0x0");
+  });
+
+  it("URI: Should return URI by id", async function () {
+    await nft1155.mint(addr1.address, 1, 1, "0x");
+    expect(await nft1155.uri(1)).to.equal("https://ipfs.io/ipfs/bafybeibluxooouekfbn6l535gp5asupnjkbdfb7ekryglkq5txflxwodca/1.json");
+    
+  });
+
+  it("SafeTransferBatch and Approval: Should approve and safeTransferBatch", async function () {
+    await nft1155.setApprovalForAll(addr1.address, true);
+    await nft1155.setApprovalForAll(addr2.address, true);
+    await nft1155.connect(addr1).safeTransferFrom(owner.address, addr3.address, 1, 1, "0x");
+    await nft1155.connect(addr2).safeBatchTransferFrom(owner.address, addr3.address, [2, 3], [1, 1], "0x");
+
+    expect(await nft1155.balanceOf(addr3.address, 1)).to.equal(1);
+    expect(await nft1155.balanceOf(addr3.address, 2)).to.equal(1);
+    expect(await nft1155.balanceOf(addr3.address, 3)).to.equal(1);
+  });
+
+  it("Should update balances after batch transfer", async function () {
+    const balanceBefore = await nft1155.balanceOfBatch([owner.address, owner.address, owner.address], [1, 2, 3]);
+    // console.log(balancesBefore);
+    await nft1155.safeBatchTransferFrom(owner.address, addr1.address, [1, 2, 3], [1, 1, 1], "0x");
+    const balanceAfter = await nft1155.balanceOfBatch([owner.address, owner.address, owner.address], [1, 2, 3]);
+    // console.log(balancesAfter);
+    expect(balanceAfter[0]).to.equal(balanceBefore[0].sub(1));
+    expect(balanceAfter[1]).to.equal(balanceBefore[1].sub(1));
+    expect(balanceAfter[2]).to.equal(balanceBefore[2].sub(1));
+  });
+
+  it("Ownership: Should transfer ownership", async function () {
+    await nft1155.transferOwnership(addr1.address);
+    expect(await nft1155.owner()).to.equal(addr1.address);
+    await expect(nft1155.mint(owner.address, 1, 1, "0x")).to.be.revertedWith("Ownable: caller is not the owner");
+    await nft1155.connect(addr1).mint(addr1.address, 2, 1, "0x");
+    expect(await nft1155.balanceOf(addr1.address, 2)).to.equal(1);
   });
 });
