@@ -1,0 +1,23 @@
+{
+    "description": "Big brother watches you.",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmSJys82ujn2qDRUxVbEWuWzf6CYe3MuhXEGVQgQxj74W6/4.jpeg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmSJys82ujn2qDRUxVbEWuWzf6CYe3MuhXEGVQgQxj74W6/4.jpeg",
+    "name": "Kizaru on Youtube Kids",
+    "attributes": [
+        {
+            "display_type": "number",
+            "trait_type": "Drip",
+            "value": 100500
+        },
+        {
+            "display_type": "number",
+            "trait_type": "Salary", 
+            "value": 100500
+          }, 
+  
+          {
+            "trait_type": "Cap", 
+            "value": "100500, no cap"
+          }
+    ]
+  }

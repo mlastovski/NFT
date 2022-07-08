@@ -1,0 +1,23 @@
+{
+    "description": "Very underrated character. Under drip atmosphere tends to exceed its limits.",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmSJys82ujn2qDRUxVbEWuWzf6CYe3MuhXEGVQgQxj74W6/1.jpeg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmSJys82ujn2qDRUxVbEWuWzf6CYe3MuhXEGVQgQxj74W6/1.jpeg",
+    "name": "Willem dafoe drip",
+    "attributes": [
+        {
+            "display_type": "number",
+            "trait_type": "Drip",
+            "value": 72000
+        },
+        {
+            "display_type": "number",
+            "trait_type": "Sugar", 
+            "value": 2
+          }, 
+  
+          {
+            "trait_type": "Car", 
+            "value": "Volvo XC-60"
+          }
+    ]
+  }

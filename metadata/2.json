@@ -1,0 +1,23 @@
+{
+    "description": "This one is very unique. Given the possibility to born in Eastern Europe, this characted has decided to go all-in in his life.",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmSJys82ujn2qDRUxVbEWuWzf6CYe3MuhXEGVQgQxj74W6/2.jpeg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmSJys82ujn2qDRUxVbEWuWzf6CYe3MuhXEGVQgQxj74W6/2.jpeg",
+    "name": "Tyler the ukrainian",
+    "attributes": [
+        {
+            "display_type": "number",
+            "trait_type": "Drip",
+            "value": 5
+        },
+        {
+            "display_type": "number",
+            "trait_type": "Salary", 
+            "value": 300
+          }, 
+  
+          {
+            "trait_type": "Cap", 
+            "value": "No cap"
+          }
+    ]
+  }

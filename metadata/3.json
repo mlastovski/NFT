@@ -1,0 +1,23 @@
+{
+    "description": "Ex-chancellor of Austria wrapped in Cube with a bottle of carrot juice.",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmSJys82ujn2qDRUxVbEWuWzf6CYe3MuhXEGVQgQxj74W6/3.jpeg",
+    "image": "https://gateway.pinata.cloud/ipfs/QmSJys82ujn2qDRUxVbEWuWzf6CYe3MuhXEGVQgQxj74W6/3.jpeg",
+    "name": "Sebastian Cube",
+    "attributes": [
+        {
+            "display_type": "number",
+            "trait_type": "Drip",
+            "value": 1
+        },
+        {
+            "display_type": "number",
+            "trait_type": "Sides", 
+            "value": 6
+          }, 
+  
+          {
+            "trait_type": "City", 
+            "value": "Vienna"
+          }
+    ]
+  }

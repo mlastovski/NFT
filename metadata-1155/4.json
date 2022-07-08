@@ -1,0 +1,23 @@
+{
+    "description": "Pokerface emoji",
+    "external_url": "https://gateway.pinata.cloud/ipfs/QmXyWpEGuC5Hdcwt9f8GZrYBWjpGuqwf4YybonJ1WjUASo/4.png",
+    "image": "https://gateway.pinata.cloud/ipfs/QmXyWpEGuC5Hdcwt9f8GZrYBWjpGuqwf4YybonJ1WjUASo/4.png",
+    "name": "Neutral one",
+    "attributes": [
+        {
+            "display_type": "number",
+            "trait_type": "Drip",
+            "value": 72000
+        },
+        {
+            "display_type": "number",
+            "trait_type": "Sugar", 
+            "value": 2
+          }, 
+  
+          {
+            "trait_type": "Car", 
+            "value": "Volvo XC-60"
+          }
+    ]
+  }
